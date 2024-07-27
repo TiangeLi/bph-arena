@@ -114,6 +114,7 @@ if st.session_state.curr_q_pos < total_qs:
             for model, response in response.items():
                 with cols1[i]:
                     _reformatted = re.sub(r'#+', '######', response)
+                    _reformatted = re.sub(r'【.*?】', '', _reformatted)
                     st.subheader(f"Response {i+1}")
                     st.markdown(_reformatted)
     for i in range(len(responses)):
