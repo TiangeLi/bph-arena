@@ -117,6 +117,7 @@ if st.session_state.curr_q_pos < total_qs:
                     _reformatted = re.sub(r'【.*?】', '', _reformatted)
                     st.subheader(f"Response {i+1}")
                     st.markdown(_reformatted)
+    '---'
     for i in range(len(responses)):
         with cols2[i]:
             if st.button(f"Response {i+1} is best", key=f"{i}"):
