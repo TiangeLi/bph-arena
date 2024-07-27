@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import random
+import re
 
 title = 'BPH Arena'
 st.set_page_config(page_title=title, layout='wide')
@@ -112,8 +113,9 @@ if st.session_state.curr_q_pos < total_qs:
         for i, response in enumerate(responses):
             for model, response in response.items():
                 with cols1[i]:
+                    _reformatted = re.sub(r'#+', '######', response)
                     st.subheader(f"Response {i+1}")
-                    st.markdown(response)
+                    st.markdown(_reformatted)
     for i in range(len(responses)):
         with cols2[i]:
             if st.button(f"Response {i+1} is best", key=f"{i}"):
